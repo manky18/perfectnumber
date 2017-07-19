@@ -37,9 +37,15 @@ public class PerfectNumberTest {
 
         ArrayList<Integer> actual = new ArrayList<>();
 
-        for (int i = startingNumber; i <= endingNumber; i++) {
-            if (PerfectNumber.isPerfectNumber(i)) {
-                actual.add(i);
+        if(startingNumber % 2 != 0) {
+            startingNumber = startingNumber + 1;
+        }
+
+        for (int i = startingNumber; i <= endingNumber; i+=2) {
+            if (i % 10 == 6 || i % 10 == 8) {
+                if (PerfectNumber.isPerfectNumber(i)) {
+                    actual.add(i);
+                }
             }
         }
         Assert.assertEquals(actual,expected);

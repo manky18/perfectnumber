@@ -16,9 +16,15 @@ public class PerfectNumber {
 
         System.out.println("Looking for Perfect Numbers between " +startingNumber + " and " +endingNumber);
 
-        for (int i = startingNumber; i <= endingNumber; i++) {
-            if (isPerfectNumber(i)) {
-                System.out.println(i + " is a perfect number");
+        if(startingNumber % 2 != 0) {
+            startingNumber = startingNumber + 1;
+        }
+
+        for (int i = startingNumber; i <= endingNumber; i+=2) {
+            if (i % 10 == 6 || i % 10 == 8) {
+                if (isPerfectNumber(i)) {
+                    System.out.println(i + " is a perfect number");
+                }
             }
         }
 
